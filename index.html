@@ -41,6 +41,7 @@
                     }
                     return theRequest;
                 }
+                    
                 
                 var Request = new Object();
                 Request = GetRequest();
@@ -60,6 +61,10 @@
                 }
                 if (typeof get === 'undefined') {
                     var errget = 'true';
+                } else {
+                    if (go === 'home') {
+                        var errget = 'false';
+                    }
                 }
                 
                 if (errgo === 'true' && errget === 'true') {
@@ -99,7 +104,7 @@
                         var step2 = 'Thermal_Checker/update.md';
                         document.write('检测到需求为温控检测更新日志');
                     } else if (get === 'home') {
-                        var step2 = '';
+                        var step2 = '/';
                         document.write('检测到需求为网站');
                     } else if (get === 'chome') {
                         var step2 = 'Thermal_Checker/';
@@ -111,8 +116,8 @@
                         var step2 = 'Thermal_Checker/version.md';
                         document.write('检测到需求为温控检测版本');
                     } else {
-                        var step2 = '';
-                        document.write('检测到无需求');
+                        var step2 = '/';
+                        document.write('检测到需求为网站');
                     }
                     
                     }
