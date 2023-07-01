@@ -67,7 +67,7 @@
                 } else if (errgo === 'true' || errget === 'true') {
                     alert('参数缺失');
                     document.write('看来是因为网址错误的原因使你没有到达你本应该到达的地方，确保网址正确再重新进入吧！');
-                } else
+                } else {
                     if (go === 'hotup') {
                         var step1 = 'https://www.womi.ltd/skyx/mod/hotup';
                         document.write('检测到目标为HotUP');
@@ -115,7 +115,12 @@
                         document.write('检测到无需求');
                     }
                     
-                    } 
+                    }
+                    
+                    if (err === 'true') {
+                        alert('参数错误');
+                        document.write('看来是因为网址错误的原因使你没有到达你本应该到达的地方，确保网址正确再重新进入吧！');
+                    }
                     
                     document.write('\n');
 
@@ -129,7 +134,7 @@
                     
                     window.location.replace(all);
                     }
-                
+                }
                 
             </script>
                 
