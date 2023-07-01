@@ -118,13 +118,18 @@
                     } 
                     
                     document.write('\n');
-                    
+
+                    if (noto === 'true') {
+                        document.write('即将到达链接“',step1,'”，感谢您的使用');
+                        window.location.replace(step1);
+                    } else {
                     var all = step1 + step2;
                     
                     document.write('即将到达链接“',all,'”，感谢您的使用');
                     
                     window.location.replace(all);
-                }
+                    }
+                
                 
             </script>
                 
