@@ -1,160 +1,136 @@
-    <!DOCTYPE html>
-    
-    
-        <html lang="zh-CN">
-        
-        
-            <head>
-                
-                
-                <meta charset="utf-8">
-                
-                <title>200OK Working！ 欢迎您的到来！</title>
-                
-                <link rel="icon" href="/favicon.ico">
-                
-                <link rel="shortcut icon" href="/favicon.ico">
-                
-                <link rel="bookmark" href="/favicon.ico">
-                
-                
-            </head>
-            
-            
-            <body>
-                
-                
-                <script type="text/javascript">
-                function GetRequest() {
-                           var url = location.search;
-                           var theRequest = new Object();
-                           if (url.indexOf("?") != -1) {
-                               var str = url.substr(1);
-                               if (str.indexOf("&") != -1) {
-                                   var strs = str.split("&");
-                                   for (var i = 0; i < strs.length; i++) {
-                                       var key = strs[i].split("=")[0];
-                                       var value = decodeURIComponent(strs[i].split("=")[1]);
-                                       theRequest[key] = value;
-                                   }
-                                } else {
-                                var key = str.split("=")[0];
-                                var value = decodeURIComponent(str.split("=")[1]);
-                                theRequest[key] = value;
-                            }
-                        }
-                    return theRequest;
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>200OK Working！ 欢迎您的到来！</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="bookmark" href="/favicon.ico">
+</head>
+
+<body>
+    <script type="text/javascript">
+        function GetRequest() {
+            var url = location.search;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                if (str.indexOf("&") != -1) {
+                    var strs = str.split("&");
+                    for (var i = 0; i < strs.length; i++) {
+                        var key = strs[i].split("=")[0];
+                        var value = decodeURIComponent(strs[i].split("=")[1]);
+                        theRequest[key] = value;
+                    }
+                } else {
+                    var key = str.split("=")[0];
+                    var value = decodeURIComponent(str.split("=")[1]);
+                    theRequest[key] = value;
                 }
-                    
-                
-                var Request = new Object();
-                Request = GetRequest();
-                
-                var go,get;
-                go = Request['go'];
-                get = Request['get'];
-                
-                var err = 'false';
-                var errgo = 'false';
+            }
+            return theRequest;
+        }
+
+        var Request = new Object();
+        Request = GetRequest();
+
+        var go, get;
+        go = Request['go'];
+        get = Request['get'];
+
+        var err = 'false';
+        var errgo = 'false';
+        var errget = 'false';
+
+        var noto = 'false';
+
+        if (typeof go === 'undefined') {
+            var errgo = 'true';
+        }
+        if (typeof get === 'undefined') {
+            var errget = 'true';
+        } else {
+            if (go === 'home') {
                 var errget = 'false';
+            }
+        }
 
-                var noto = 'false';
-                
-                if (typeof go === 'undefined') {
-                    var errgo = 'true';
-                }
-                if (typeof get === 'undefined') {
-                    var errget = 'true';
+        if (errgo === 'true' && errget === 'true') {
+            window.location.replace('https://www.womi.ltd/');
+        } else if (errgo === 'true' || errget === 'true') {
+            alert('参数缺失');
+            document.write('看来是因为网址错误的原因使你没有到达你本应该到达的地方，确保网址正确再重新进入吧！');
+        } else {
+            if (go === 'hotup') {
+                var step1 = 'https://www.womi.ltd/skyx/mod/hotup';
+                document.write('检测到目标为HotUP');
+            } else if (go === 'home') {
+                var step1 = 'https://www.womi.ltd/';
+                var noto = 'true';
+                document.write('检测到目标为尤苏奈尔基本外发');
+            } else {
+                var err = 'true';
+            }
+
+            document.write('\n');
+
+            if (noto = 'false' && go === 'hotup') {
+
+                if (get === 'install') {
+                    var step2 = '/hotup.zip';
+                    document.write('检测到需求为安装');
+                } else if (get === 'change') {
+                    var step2 = '/update.md';
+                    document.write('检测到需求为更新日志');
+                } else if (get === 'json') {
+                    var step2 = '/hotup.json';
+                    document.write('检测到需求为更新文件');
+                } else if (get === 'check') {
+                    var step2 = '/Thermal_Checker/Thermal_Checker.SH';
+                    document.write('检测到需求为温控检测');
+                } else if (get === 'cchange') {
+                    var step2 = '/Thermal_Checker/update.md';
+                    document.write('检测到需求为温控检测更新日志');
+                } else if (get === 'home') {
+                    var step2 = '/';
+                    document.write('检测到需求为网站');
+                } else if (get === 'chome') {
+                    var step2 = '/Thermal_Checker/';
+                    document.write('检测到需求为温控检测网站');
+                } else if (get === 'version') {
+                    var step2 = '/version.md';
+                    document.write('检测到需求为版本');
+                } else if (get === 'cversion') {
+                    var step2 = '/Thermal_Checker/version.md';
+                    document.write('检测到需求为温控检测版本');
                 } else {
-                    if (go === 'home') {
-                        var errget = 'false';
-                    }
+                    var step2 = '/';
+                    document.write('检测到需求为网站');
                 }
-                
-                if (errgo === 'true' && errget === 'true') {
-                    window.location.replace('https://www.womi.ltd/');
-                } else if (errgo === 'true' || errget === 'true') {
-                    alert('参数缺失');
-                    document.write('看来是因为网址错误的原因使你没有到达你本应该到达的地方，确保网址正确再重新进入吧！');
-                } else {
-                    if (go === 'hotup') {
-                        var step1 = 'https://www.womi.ltd/skyx/mod/hotup';
-                        document.write('检测到目标为HotUP');
-                    } else if (go === 'home') {
-                        var step1 = 'https://www.womi.ltd/';
-                        var noto = 'true';
-                        document.write('检测到目标为尤苏奈尔基本外发');
-                    } else {
-                        var err = 'true';
-                    }
-                    
-                    document.write('\n');
 
-                    if (noto = 'false' && go === 'hotup'){
-                        
-                    if (get === 'install') {
-                        var step2 = '/hotup.zip';
-                        document.write('检测到需求为安装');
-                    } else if (get === 'change') {
-                        var step2 = '/update.md';
-                        document.write('检测到需求为更新日志');
-                    } else if (get === 'json') {
-                        var step2 = '/hotup.json';
-                        document.write('检测到需求为更新文件');
-                    } else if (get === 'check') {
-                        var step2 = '/Thermal_Checker/Thermal_Checker.SH';
-                        document.write('检测到需求为温控检测');
-                    } else if (get === 'cchange') {
-                        var step2 = '/Thermal_Checker/update.md';
-                        document.write('检测到需求为温控检测更新日志');
-                    } else if (get === 'home') {
-                        var step2 = '/';
-                        document.write('检测到需求为网站');
-                    } else if (get === 'chome') {
-                        var step2 = '/Thermal_Checker/';
-                        document.write('检测到需求为温控检测网站');
-                    } else if (get === 'version') {
-                        var step2 = '/version.md';
-                        document.write('检测到需求为版本');
-                    } else if (get === 'chome') {
-                        var step2 = '/Thermal_Checker/version.md';
-                        document.write('检测到需求为温控检测版本');
-                    } else {
-                        var step2 = '/';
-                        document.write('检测到需求为网站');
-                    }
-                    
-                    }
-                    
-                    if (err === 'true') {
-                        alert('参数错误');
-                        document.write('看来是因为网址错误的原因使你没有到达你本应该到达的地方，确保网址正确再重新进入吧！');
-                    }
-                    
-                    document.write('\n');
+            }
 
-                    if (noto === 'true') {
-                        document.write('即将到达链接“',step1,'”，感谢您的使用');
-                        window.location.replace(step1);
-                    } else {
-                    var all = step1 + step2;
-                    
-                    document.write('即将到达链接“',all,'”，感谢您的使用');
-                    
-                    window.location.replace(all);
-                    }
-                }
-                
-            </script>
-                
-                
-            </body>
-            
-             
-        </html>
- 
-  
-   
-    
-     
-      
+            if (err === 'true') {
+                alert('参数错误');
+                document.write('看来是因为网址错误的原因使你没有到达你本应该到达的地方，确保网址正确再重新进入吧！');
+            }
+
+            document.write('\n');
+
+            if (noto === 'true') {
+                document.write('即将到达链接“', step1, '”，感谢您的使用');
+                window.location.replace(step1);
+            } else {
+                var all = step1 + step2;
+
+                document.write('即将到达链接“', all, '”，感谢您的使用');
+
+                window.location.replace(all);
+            }
+        }
+    </script>
+</body>
+
+</html>
