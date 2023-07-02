@@ -52,9 +52,12 @@
         }
 
         .output-container {
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 5px solid #000;
+            border-radius: 20px;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0);
             color: #fff;
@@ -62,8 +65,8 @@
             text-align: left;
             white-space: pre-wrap;
             line-height: 1.5;
-            border-radius: 20px;
-            border: 5px solid #000;
+            max-width: 90%;
+            overflow: auto;
         }
     </style>
 </head>
@@ -72,9 +75,6 @@
     <canvas id="canvas-basic"></canvas>
     <div class="overlay">
         <h1>200OK Working</h1>
-    </div>
-    <div class="output-container">
-        <div id="output"></div>
     </div>
     <div class="content">
         <script src="https://npm.elemecdn.com/granim@2.0.0/dist/granim.min.js"></script>
@@ -100,6 +100,8 @@
                 speed: 1000
             });
         </script>
+        </div>
+        <div class="output-container">
         <script type="text/javascript">
             function GetRequest() {
                 var url = location.search;
