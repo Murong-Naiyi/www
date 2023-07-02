@@ -53,11 +53,11 @@
 
         .output-container {
             position: absolute;
-            top: 50%;
+            top: 15%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            border: 5px solid #000;
-            border-radius: 20px;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 800px;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0);
             color: #fff;
@@ -65,8 +65,10 @@
             text-align: left;
             white-space: pre-wrap;
             line-height: 1.5;
-            max-width: 90%;
-            overflow: auto;
+            border-radius: 45px;
+            border: 5px solid #000;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
     </style>
 </head>
