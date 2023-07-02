@@ -53,7 +53,7 @@
 
         .output-container {
             position: absolute;
-            top: 30%;
+            top: 60%;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
@@ -138,8 +138,6 @@
 
             var noto = false;
 
-            document.write('<br>');
-
             if (typeof go === 'undefined') {
                 errgo = true;
             }
@@ -164,6 +162,7 @@
                     err = true;
                 }
                 document.write('<br>');
+                document.write('     ');
 
                 if (!noto && go === 'hotup') {
                     if (get === 'install') {
@@ -206,6 +205,7 @@
                 }
 
                 document.write('<br>');
+                document.write('     ');
 
                 if (noto) {
                     document.write('即将到达链接“', step1, '”，感谢您的使用');
