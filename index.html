@@ -49,6 +49,7 @@
             font-size: 24px;
             text-align: center;
             white-space: nowrap;
+            display: none;
         }
     </style>
 </head>
@@ -59,6 +60,7 @@
         <h1>200OK Working</h1>
     </div>
     <div class="content">
+        <h1 id="output"></h1>
         <script src="https://npm.elemecdn.com/granim@2.0.0/dist/granim.min.js"></script>
         <script>
             var granimInstance = new Granim({
@@ -117,12 +119,8 @@
             if (typeof go === 'undefined') {
                 errgo = true;
             }
-            if (typeof get === 'undefined') {
+            if (typeof get === 'undefined' && go != 'home') {
                 errget = true;
-            } else {
-                if (go === 'home') {
-                    errget = false;
-                }
             }
 
             if (errgo && errget) {
