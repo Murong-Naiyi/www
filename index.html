@@ -71,6 +71,12 @@
             word-wrap: break-word;
             z-index: 2;
         }
+
+	footer {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -258,12 +264,13 @@
             }
         </script>
     </div>
-    <div align="center">
-Copyright ©2023-2023 尤苏奈尔·希洛尔, All Rights Reserved.
-</div>
-<div align="center">
-萌国备案号：<a href="https://icp.gov.moe/?keyword=20234488" target="_blank">萌ICP备20234488号</a>
-</div>
+    <footer>
+        <div align="center">
+            Copyright ©2023-2023 尤苏奈尔·希洛尔, All Rights Reserved.
+        </div>
+        <div align="center">
+            萌国备案号：<a href="https://icp.gov.moe/?keyword=20234488" target="_blank">萌ICP备20234488号</a>
+        </div>
 <div align="center">
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 本页总浏览量 <span id="busuanzi_value_page_pv"></span> 次
@@ -272,56 +279,57 @@ Copyright ©2023-2023 尤苏奈尔·希洛尔, All Rights Reserved.
 
 本站总访客数 <span id="busuanzi_value_site_uv"></span> 人
 </div>
-<div align="center">
-<span id="momk"></span>
-<script language=javascript>
-function show_date_time(){
-window.setTimeout("show_date_time()", 1000);
-BirthDay=new Date("02-06-2023 22:44:40");//建站日期
-today=new Date();
-timeold=(today.getTime()-BirthDay.getTime());
-sectimeold=timeold/1000
-secondsold=Math.floor(sectimeold);
-msPerDay=24*60*60*1000
-e_daysold=timeold/msPerDay
-daysold=Math.floor(e_daysold);
-e_hrsold=(daysold-e_daysold)*-24;
-hrsold=Math.floor(e_hrsold);
-e_minsold=(hrsold-e_hrsold)*-60;
-minsold=Math.floor((hrsold-e_hrsold)*-60);
-seconds=Math.floor((minsold-e_minsold)*-60);
-momk.innerHTML="网站已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒" ;
-}
-show_date_time();
-</script>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<div id="client-info" align="center"></div>
-    <script>
-        $(document).ready(function() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'https://phus.lu/server/ip.php', true);
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    var parts = xhr.responseText.split('  ');
-                    var ip_addr = parts[0];
-                    var ip_city = parts[1] + (parts[2] ? ', ' + parts[2] : '');
-                    var ip_isp = parts[3];
-                    var ip_ct = parts[4];
+            <div align="center">
+                <span id="momk"></span>
+                <script language=javascript>
+                    function show_date_time() {
+                        window.setTimeout("show_date_time()", 1000);
+                        var BirthDay = new Date("02-06-2023 22:44:40"); //建站日期
+                        var today = new Date();
+                        var timeold = (today.getTime() - BirthDay.getTime());
+                        var sectimeold = timeold / 1000;
+                        var secondsold = Math.floor(sectimeold);
+                        var msPerDay = 24 * 60 * 60 * 1000;
+                        var e_daysold = timeold / msPerDay;
+                        var daysold = Math.floor(e_daysold);
+                        var e_hrsold = (daysold - e_daysold) * -24;
+                        var hrsold = Math.floor(e_hrsold);
+                        var e_minsold = (hrsold - e_hrsold) * -60;
+                        var minsold = Math.floor((hrsold - e_hrsold) * -60);
+                        var seconds = Math.floor((minsold - e_minsold) * -60);
+                        document.getElementById("momk").innerHTML = "网站已运行" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+                    }
+                    show_date_time();
+                </script>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <div id="client-info" align="center"></div>
+            <script>
+                $(document).ready(function() {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', 'https://phus.lu/server/ip.php', true);
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            var parts = xhr.responseText.split('  ');
+                            var ip_addr = parts[0];
+                            var ip_city = parts[1] + (parts[2] ? ', ' + parts[2] : '');
+                            var ip_isp = parts[3];
+                            var ip_ct = parts[4];
 
-                    var table = $('<table></table>');
-                    table.append('<tr><th colspan="4">🌐 连接信息</th></tr>');
-                    table.append('<tr><td>网络IP</td><td colspan="3">' + ip_addr + '</td></tr>');
-                    table.append('<tr><td>所在地</td><td colspan="3">' + ip_city + '</td></tr>');
-                    table.append('<tr><td>运营商</td><td colspan="3">' + ip_isp + '</td></tr>');
-                    table.append('<tr><td>连接方式</td><td colspan="3">' + ip_ct + '</td></tr>');
+                            var table = $('<table></table>');
+                            table.append('<tr><th colspan="4">🌐 连接信息</th></tr>');
+                            table.append('<tr><td>网络IP</td><td colspan="3">' + ip_addr + '</td></tr>');
+                            table.append('<tr><td>所在地</td><td colspan="3">' + ip_city + '</td></tr>');
+                            table.append('<tr><td>运营商</td><td colspan="3">' + ip_isp + '</td></tr>');
+                            table.append('<tr><td>连接方式</td><td colspan="3">' + ip_ct + '</td></tr>');
 
-                    $('#client-info').append(table);
-                }
-            };
-            xhr.send();
-        });
-    </script>
+                            $('#client-info').append(table);
+                        }
+                    };
+                    xhr.send();
+                });
+            </script>
+        </footer>
 </body>
 <style>
 .container {
