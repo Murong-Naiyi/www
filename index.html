@@ -264,7 +264,11 @@
                     } else if (get === 'cversion') {
                         var step2 = '/Thermal_Checker/version.md';
                         document.write('检测到需求为温控检测版本');
-                    } else {
+                    } else if (get === '123') {
+			var step1 = 'https://www.123pan.com/s';
+                        var step2 = '/chTUVv-WEHWA';
+                        document.write('检测到需求为123网盘');
+		    } else {
                         var step2 = '/';
                         document.write('检测到需求为网站');
                     }
