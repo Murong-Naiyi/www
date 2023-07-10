@@ -1,4 +1,4 @@
-# robots.txt generated at https://womi.ltd/robots.txt 
+# robots.txt generated at https://200ok.work/robots.txt 
 User-agent: Baiduspider
 Disallow: 
 User-agent: Sosospider
